@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>House Car Prediction</title>
+    <style>
+      .score{
+        border: 3px solid black;
+        border-radius: 10px;
+        width: 10%;
+        padding:10px;
+        font-weight:bold;
+        background-color:pink
+      }
+    </style> 
+  </head>
+  <body>
+    <div class = 'login m-4'>
+      <h1>House Price Prediction</h1>
+      <div class = 'score'>
+        Model Score - <br>
+        MAE: 0.088
+        MSE: 0.023
+        RMSE: 0.152
+      </div><br>
+      <form action="{{ url_for('predict_house')}}"method="post">
+        <label for="exampleInputEmail1">MSZoning (RM:11.69|RL:12.08|rare:12.04)</label>
+        <input type="text" name="MSZoning" value = 12.09 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">Lot Area</label>
+        <input type="text" name="Lot Area" value = 9.15 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">Lot Config (Inside:12.00 Corner:12.03 rare:12.18)</label>
+        <input type="text" name="Lot config" value = 12.00 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">Land Slope (Gtl:12.02|rare:12.09)</label>
+        <input type="text" name="Land Slope" value = 12.02 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">Condition 1 (Norm:12.04|rare:11.91)</label>
+        <input type="text" name="Condition1" value = 12.04 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">Condition 2 (Norm:12.03|rare:11.85)</label>
+        <input type="text" name="Condition2" value = 12.03 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">BLDG Type (1Fam:12.05|rare:11.90)</label>
+        <input type="text" name="BLDG Type" value = 12.05 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">OverallQual</label>
+        <input type="text" name="OverallQual" value = 7 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">OverallCond</label>
+        <input type="text" name="OverallCond" value = 5 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">YearBuilt</label>
+        <input type="text" name="YearBuilt" value = 12 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">YearRemodAdd</label>
+        <input type="text" name="YearRemodAdd" value = 11 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">RoofStyle</label>
+        <input type="text" name="Roofstyle" value = 11.98 required="required" class = 'form-control'/><br>   
+
+        <label for="exampleInputEmail1">RoofMatl(CompShg:12.02|rare:12.29)</label>
+        <input type="text" name="RoofMatl" value = 12.02 required="required" class = 'form-control'/><br>   
+
+        <label for="exampleInputEmail1">Exterior1st(Wd Sdng:11.84|MetalSd|11.86|HdBoard:11.95|VinylSd:12.21|rare:12.01)</label>
+        <input type="text" name="Exterior1st" value = 12.21 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">ExterQual(TA:11.84|GD:12.31|rare:12.45)</label>
+        <input type="text" name="ExterQual" value = 11.84 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">ExterCond(TA:12.04|rare:11.89)</label>
+        <input type="text" name="ExterCond" value = 12.04 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">Foundation(PConc:12.26|CBlock:11.87|rare:11.71)</label>
+        <input type="text" name="Foundation" value = 12.26 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">BsmtQual</label>
+        <input type="text" name="BsmtQual" value = 0 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">BsmtCond(TA:12.04|rare:11.71)</label>
+        <input type="text" name="BsmtCond" value = 12.04 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">BsmtExposure(No:11.95|Av:12.16|rare:12.15)</label>
+        <input type="text" name="BsmtExposure" value = 11.96 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">BsmtFinType1(ALQ:11.96|BLQ:11.87|UNF:11.97|GLQ:12.30|rare:11.81)</label>
+        <input type="text" name="BsmtFinType1" value = 12.30 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">BsmtFinSF1</label>
+        <input type="text" name="BsmtFinSF1" value = 739 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">BsmtFinSF2</label>
+        <input type="text" name="BsmtFinSF2" value = 0 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">TotalBsmtSF</label>
+        <input type="text" name="TotalBsmtSF" value = 1057 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">HeatingQC (TA:11.82|Gd:11.91|Ex:12.21|rare:11.63)</label>
+        <input type="text" name="HeatingQC" value = 12.21 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">CentralAir (Y:12.06|rare:11.50)</label>
+        <input type="text" name="CentralAir" value = 12.06 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">1stFlrSF</label>
+        <input type="text" name="1stFlrSF" value = 6.96 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">2ndFlrSF</label>
+        <input type="text" name="2ndFlrSF" value = 977 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">GrLivArea</label>
+        <input type="text" name="GrLivArea" value = 7.62 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">BsmtFullBath</label>
+        <input type="text" name="BsmtFullBath" value = 1 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">FullBath</label>
+        <input type="text" name="FullBath" value = 2 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">HalfBath</label>
+        <input type="text" name="HalfBath" value = 1 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">KitchenQual (TA:11.81|Gd:12.22|rare:12.32)</label>
+        <input type="text" name="KitchenQual" value = 12.22 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">Functional (Typ:12.04|rare:11.83)</label>
+        <input type="text" name="Functional" value = 12.04 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">Fireplaces</label>
+        <input type="text" name="Fireplaces" value = 0 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">FireplaceQu (Missing:11.80|TA:12.19|Gd:12.26||rare:12.14)</label>
+        <input type="text" name="FireplaceQu" value = 11.81 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">GarageFinish (Unf:11.82|RFn:12.17|Fin:12.32|rare:11.49)</label>
+        <input type="text" name="GarageFinish" value = 12.17 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">GarageCars</label>
+        <input type="text" name="GarageCars" value = 2 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">GarageArea</label>
+        <input type="text" name="GarageArea" value = 645 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">GarageCond (TA:07|rare:11.56)</label>
+        <input type="text" name="GarageCond" value = 645 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">PavedDrive (Y:12.06|rare:11.62)</label>
+        <input type="text" name="PavedDrive" value = 12.06 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">WoodDeckSF</label>
+        <input type="text" name="WoodDeckSF" value = 576 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">ScreenPorch</label>
+        <input type="text" name="ScreenPorch" value = 0 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">Fence (MnPrv:11.85|Missing:12.06|rare:11.92)</label>
+        <input type="text" name="Fence" value = 11.92 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">MiscFeature (Missing:12.03|rare:11.86)</label>
+        <input type="text" name="MiscFeature" value = 12.03 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">YrSold</label>
+        <input type="text" name="YrSold" value = 2009 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">SaleType (WD:11.99|rare:12.24)</label>
+        <input type="text" name="SaleType" value = 11.99 required="required" class = 'form-control'/><br>
+
+        <label for="exampleInputEmail1">SaleCondition (Normal:12.01|rare:12.11)</label>
+        <input type="text" name="SaleCondition" value = 12.01 required="required" class = 'form-control'/><br>
+
+
+
+        
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+      </form>
+      <b>{{prediction_text}}</b>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <title>ML Projects</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+
+  <style>
+    .container{
+        border: 10px solid black;
+        padding: 15px;
+        text-align: center;
+        width: 50%;
+        margin-left:25%;
+        margin-top:8%;
+        background-color:pink;
+    }
+    a{
+        border: 2px solid black;
+        border-radius:5px;
+        padding:6px;
+    }
+  </style>
+
+</head>
+
+<body style = 'background-color:#FDD4FD;'>
+  <div class = "container">
+    <h1>List of Projects</h1>
+
+    <h3>House Price Prediction</h3>
+    <p>The data is about Houses and we have to predict the price of the house based on size of property, type of roof etc.</p>
+    <a href="{{ url_for('house') }}">Make Prediction</a>
+    <a href = "https://github.com/saurav-singh321/Flask_ML/blob/main/House%20Price.ipynb">Code</a><br><br>
+
+    <h3>Titanic Survival Prediction</h3>
+    <p>The data is about the passengers travelling on Titanic and we have to predict whether the passenger survived based on Sex, Age and some other feature of passenger.</p>
+    <a href="{{ url_for('titanic') }}">Make Prediction</a>
+    <a href = "https://github.com/saurav-singh321/Flask_ML/blob/main/Titanic%20Survival.ipynb">Code</a>
+    <br><br>
+    
+    <h3>Car Price Prediction</h3>
+    <p>The data is about Cars and we have to predict the price of the car based on Kms driven, Fuel type, Seller type etc.</p>
+    <a href="{{ url_for('car') }}">Make Prediction</a>
+    <a href = "https://github.com/saurav-singh321/Flask_ML/blob/main/Car%20Price%20prediction.ipynb">Code</a>
+    <br><br>
+
+    <h3>Spaceship Titanic</h3>
+    <p>The data is about passengers who are travelling to another planet.We have to predict whether the passenger reached to its destination.<br>
+    <b>NOTE: </b>This is a synthetically generated data and is used only for data analysis purpose.</p>
+    <a href="{{ url_for('spaceship') }}">Make Prediction</a>
+    <a href = "https://github.com/saurav-singh321/Flask_ML/blob/main/spaceship%20titanic.ipynb">Code</a>
+    <br><br>
+    
+    <h3>California House Price Prediction</h3>
+    <p>The data is Houses of California and we have to predict the price of the house based on population, no. of bedroom etc.</p>
+    <a href="{{ url_for('california') }}">Make Prediction</a>
+    <a href = "https://github.com/saurav-singh321/Flask_ML/blob/main/California%20Housing%20prediction.ipynb">Code</a>
+    <br><br>
+    
+    <h3>Mobile Price Prediction</h3>
+    <p>The data is about Mobile and we have to predict the price of the Mobile based on RAM, bluethoot, wifi etc.</p>
+    <a href="{{ url_for('mobile') }}">Make Prediction</a>
+    <a href = "https://github.com/saurav-singh321/Flask_ML/blob/main/Mobile%20Price.ipynb">Code</a>
+    <br><br>
+  </div>
+</body>
+
+</html>
